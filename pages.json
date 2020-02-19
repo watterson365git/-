@@ -1,0 +1,51 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+            "path" : "pages/tag/tag",
+            "style" : {
+				"navigationBarTitleText": "纪念日"
+			}
+        }
+        ,{
+            "path" : "pages/weather/weather",
+            "style" : {
+				"navigationBarTitleText": "天气"
+			}
+        }
+        ,{
+            "path" : "pages/add/add",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/dele/dele",
+            "style" : {}
+        }
+    ],
+	"tabBar": {
+		    "color": "#7A7E83",						//未选中时，字体颜色（只支持16进制写法）
+		    "selectedColor": "#ee3f4d",				//选中时，字体颜色（只支持16进制写法）
+		    "borderStyle": "black",
+		    "backgroundColor": "#f0a1a8",
+		    "list": [
+			{                               //tabbar数组里设置一个就一页，改url和page的数组一一对应
+			    "pagePath": "pages/tag/tag",
+			    "iconPath": "static/form.png",
+			    "selectedIconPath": "static/form2.png",
+			    "text": "纪念日"
+			}, 
+			{
+			    "pagePath": "pages/weather/weather",
+			    "iconPath": "static/cloud.png",
+			    "selectedIconPath": "static/cloud2.png",
+			    "text": "天气"
+			}]
+		},
+	
+	
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "小纪念",
+		"navigationBarBackgroundColor": "#f0a1a8",
+		"backgroundColor": "#f0a1a8"
+	}
+}
