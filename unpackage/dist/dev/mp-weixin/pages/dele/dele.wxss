@@ -1,0 +1,47 @@
+
+.deleframe{
+	position:relative;
+	left: 5%;
+	right: 5%;
+	margin-top:30%;
+	width: 90%;
+	border-radius:15rpx;
+	box-shadow: 3rpx 3rpx 2rpx 1rpx #888888;
+	background-color: #e3b4b8;
+}
+.day{
+	text-align: center;
+	padding-top: 100rpx;
+	padding-bottom: 100rpx;
+	font-size: 200%;
+	color: #1B1464;
+}
+.title,.date{
+	height: 100rpx;
+	text-align: center;
+	line-height: 100rpx;
+	color: #EE5A24;
+	font-size: 120%;
+}
+.btn{
+	position:relative;
+	left: 5%;
+	right: 5%;
+	margin-top:4%;
+	width: 90%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	text-align: center;
+}
+.btn1,.btn2{
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	display: inline-block;
+	background-color:  #ad6598;
+	color: #eeeeee;
+}
+
+
+

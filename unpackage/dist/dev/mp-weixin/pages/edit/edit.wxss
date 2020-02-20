@@ -1,0 +1,35 @@
+
+.addbtn{
+	margin-top: 60rpx;
+}
+.adddate{
+	padding: 40rpx;
+	
+	margin-top: 250rpx;
+}
+.name{
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	border-bottom: #8F8F94 3rpx solid;
+}
+.leftname{
+	-webkit-box-flex: 3;
+	-webkit-flex: 3;
+	        flex: 3;
+	
+	font-size: 120%;
+	text-align: center;
+	line-height: 100rpx;
+}
+.input{
+	display: block;
+	height:100rpx;
+	-webkit-box-flex: 7;
+	-webkit-flex: 7;
+	        flex: 7;
+	line-height: 100rpx;
+	padding-left: 30rpx;
+}
+
+

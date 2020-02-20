@@ -8,12 +8,12 @@
 					<view class="leftdown">{{item.date}}</view>
 				</view>
 				
-				<view class="right"> 还有多少天</view>
+				<view class="right"> {{item.qian}}{{item.days}}天</view>
 			</view>
 			
 			
 		
-			<button  class="adddate" @click="todele">添加纪念日</button>
+			<button  class="adddate" @click="toaddpage()">添加纪念日</button>
 			
 			
 		
@@ -38,17 +38,43 @@
 								});
 			},
 	        
-			todele(index){
+			todelepage(index){
+				this.$store.commit("changeindex",index)
 				uni.navigateTo({      //保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面。
 					url: '../dele/dele'
 								});
 			},
+			days(){
+				var now = new Date()
+				var list = this.list
+				for(let i =0 ;i<list.length;i++){
+					var arr =list[i].date.split("-")
+					// console.log(arr)
+					var you_setdate = new Date(arr[0],arr[1]-1,arr[2])
+					// console.log(you_setdate)
+					var day =  you_setdate-now 
+					// console.log( Math.floor(days/60/60/1000/24))
+					var days = Math.ceil(day/60/60/1000/24)
+					if(days <0){
+						var obj ={index:i,days:days*-1,qian:"过去"}
+					}else{
+						var obj ={index:i,days:days,qian:'还有'}
+					}
+					
+					this.$store.commit("adddays",obj)
+					
+					
+				}
+				
+				// var date_str = this.list.date
+			}
 			
 				
 			
 	    },
-		onReady(){
+		onLoad(){
 			this.list = this.$store.state.list
+			this.days()
 		}
 	}
 </script>
@@ -100,12 +126,14 @@
 	}
 	
 	.leftup{
-		color: #1B1464;
+		margin-top: 14rpx;
+		color:#1B1464;
+		font-size: medium;
 		
 	}
 	.leftdown{
 		font-size: medium;
-		margin-top: 14rpx;
+		margin-top: 20rpx;
 		color: #EE5A24;
 		
 	}

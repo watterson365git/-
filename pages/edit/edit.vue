@@ -2,7 +2,7 @@
    <view class="adddate">
 	    <view class="name">
 		   <view class="leftname">名称</view>
-		   <input type="text" placeholder="输入名称" class="input" @blur="getname">
+		   <input type="text" :value="list_title" class="input" @blur="getname">
 		</view>
 		
 		<view class="name">
@@ -31,6 +31,7 @@
 	            date: currentDate,
 	            time: '12:01',
 				
+				
 				list_title:'',
 				list:[]
 	        }
@@ -51,8 +52,9 @@
 			},
 			save(){
 				var list = this.list
-				list.push({title:this.list_title,date:this.date})
-				this.$store.commit("addlist",list)
+				list.splice(this.index,1,{title:this.list_title,date:this.date})
+				// list.push({title:this.list_title,date:this.date})
+				this.$store.commit("changelist",list)
 				uni.switchTab({
 					url: '../tag/tag'
 							});
@@ -89,6 +91,8 @@
 			//传递参数，把点击的index传到store里再这里获得
 			this.index = this.$store.state.index;
 			this.list =this.$store.state.list;
+			this.list_title =this.$store.state.list_title;
+			this.date =this.$store.state.list_date;
 		
 		}
 	}

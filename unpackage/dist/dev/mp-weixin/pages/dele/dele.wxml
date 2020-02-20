@@ -1,1 +1,1 @@
-<view></view>
+<view><view class="deleframe"><view class="title">{{list[index].title}}</view><view class="day">{{list[index].qian+list[index].days+"天"}}</view><view class="date">{{list[index].date}}</view></view><view class="btn"><button data-event-opts="{{[['tap',[['toedit',['$event']]]]]}}" class="btn1" bindtap="__e">编辑</button><button data-event-opts="{{[['tap',[['delelist',['$event']]]]]}}" class="btn2" bindtap="__e">删除</button></view></view>

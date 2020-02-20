@@ -5,23 +5,40 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-	test:999, 
-   list:[{title:"纪念日1",date:"20200000"},{title:"纪念日2",date:"22222222"}],
+	index:999, 
+   list:[{title:"纪念日1",date:"2020-2-20",days:365,qian:''},{title:"纪念日2",date:"2008-2-20",days:366,qian:''}],
+   list_title:'',
+   list_date:''
+   
  
   },
   mutations: {
-    addcount(state){
-      state.count++;
+    changeindex(state,index){
+      state.index=index
     },
-    addtime(state){
-      state.time++;
+    delelist(state,list){
+      state.list = list
     },
-    cleartime(state){
-      state.time = 0;
+    addlist(state,list){
+      state.list = list
     },
-    clearcount(state){
-      state.count = 0;
-    }
+   changelist(state,list){
+     state.list = list
+   },
+  getlist_title(state,list_title){
+     state.list_title = list_title
+   },
+   getlist_date(state,list_date){
+      state.list_date = list_date
+    },
+	adddays(state,obj){
+		console.log(obj)
+		var list = state.list;
+		list[obj.index].days = obj.days
+		list[obj.index].qian = obj.qian
+	   
+	 },
+   
 
   },
   actions: {

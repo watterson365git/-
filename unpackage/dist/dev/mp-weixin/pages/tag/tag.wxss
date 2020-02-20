@@ -54,6 +54,32 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* .container{
 	padding-top:5%;
 	height: 2000rpx;
@@ -96,11 +122,13 @@
 	line-height: -50rpx;
 }
 .leftup{
-	color: #1B1464;
+	margin-top: 14rpx;
+	color:#1B1464;
+	font-size: medium;
 }
 .leftdown{
 	font-size: medium;
-	margin-top: 14rpx;
+	margin-top: 20rpx;
 	color: #EE5A24;
 }
 

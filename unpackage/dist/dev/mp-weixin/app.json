@@ -3,7 +3,8 @@
     "pages/tag/tag",
     "pages/weather/weather",
     "pages/add/add",
-    "pages/dele/dele"
+    "pages/dele/dele",
+    "pages/edit/edit"
   ],
   "subPackages": [],
   "window": {
@@ -32,5 +33,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap36.json"
 }
