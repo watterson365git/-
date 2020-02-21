@@ -8663,7 +8663,7 @@ _vue.default.use(_vuex.default);var _default =
 new _vuex.default.Store({
   state: {
     index: 999,
-    list: [{ title: "纪念日1", date: "2020-2-20", days: 365, qian: '' }, { title: "纪念日2", date: "2008-2-20", days: 366, qian: '' }],
+    list: [{ title: "纪念日1", date: "2020-2-20", days: 365, qian: '' }],
     list_title: '',
     list_date: '' },
 
@@ -8689,7 +8689,7 @@ new _vuex.default.Store({
       state.list_date = list_date;
     },
     adddays: function adddays(state, obj) {
-      console.log(obj);
+      // console.log(obj)
       var list = state.list;
       list[obj.index].days = obj.days;
       list[obj.index].qian = obj.qian;

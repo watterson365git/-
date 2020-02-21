@@ -24,6 +24,7 @@
             "path" : "pages/edit/edit",
             "style" : {}
         }
+        
     ],
 	"tabBar": {
 		    "color": "#7A7E83",						//未选中时，字体颜色（只支持16进制写法）

@@ -33,14 +33,14 @@
 	    },
 	    methods: {
 			toaddpage(){
-				uni.navigateTo({      //保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面。
+				uni.reLaunch({      //保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面。
 					url: '../add/add'
 								});
 			},
 	        
 			todelepage(index){
 				this.$store.commit("changeindex",index)
-				uni.navigateTo({      //保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面。
+				uni.reLaunch({      //保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面。
 					url: '../dele/dele'
 								});
 			},
@@ -53,9 +53,10 @@
 					var you_setdate = new Date(arr[0],arr[1]-1,arr[2])
 					// console.log(you_setdate)
 					var day =  you_setdate-now 
-					// console.log( Math.floor(days/60/60/1000/24))
+					// console.log(Math.floor(day/60/60/1000/24))
 					var days = Math.ceil(day/60/60/1000/24)
 					if(days <0){
+						
 						var obj ={index:i,days:days*-1,qian:"过去"}
 					}else{
 						var obj ={index:i,days:days,qian:'还有'}
@@ -75,7 +76,22 @@
 		onLoad(){
 			this.list = this.$store.state.list
 			this.days()
-		}
+		},
+		onshow(){
+			console.log("onshowvvvvvvvvvv")
+			this.days()
+		},
+		onShareAppMessage(res) {
+		    if (res.from === 'button') {// 来自页面内分享按钮
+		      console.log(res.target)
+		    }
+		    return {
+		      title: '纪念日-天气 小程序',
+		      path: '/pages/test/test?id=123'
+		    }
+		  }
+		
+		
 	}
 </script>
 

@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/tag/tag",
+    "pages/weather/weather",
+    "pages/add/add",
+    "pages/dele/dele",
+    "pages/edit/edit"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "小纪念",
+    "navigationBarBackgroundColor": "#f0a1a8",
+    "backgroundColor": "#f0a1a8"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#ee3f4d",
+    "borderStyle": "black",
+    "backgroundColor": "#f0a1a8",
+    "list": [
+      {
+        "pagePath": "pages/tag/tag",
+        "iconPath": "static/form.png",
+        "selectedIconPath": "static/form2.png",
+        "text": "纪念日"
+      },
+      {
+        "pagePath": "pages/weather/weather",
+        "iconPath": "static/cloud.png",
+        "selectedIconPath": "static/cloud2.png",
+        "text": "天气"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

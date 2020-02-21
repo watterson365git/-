@@ -6,7 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
 	index:999, 
-   list:[{title:"纪念日1",date:"2020-2-20",days:365,qian:''},{title:"纪念日2",date:"2008-2-20",days:366,qian:''}],
+   list:[{title:"纪念日1",date:"2020-2-20",days:365,qian:''}],
    list_title:'',
    list_date:''
    
@@ -32,7 +32,7 @@ export default new Vuex.Store({
       state.list_date = list_date
     },
 	adddays(state,obj){
-		console.log(obj)
+		// console.log(obj)
 		var list = state.list;
 		list[obj.index].days = obj.days
 		list[obj.index].qian = obj.qian

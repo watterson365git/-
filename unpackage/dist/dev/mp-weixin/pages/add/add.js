@@ -182,14 +182,24 @@ var _default =
     getname: function getname(event) {
 
       this.list_title = event.detail.value;
-      console.log(this.list_title);
+      //console.log(this.list_title)
     },
     save: function save() {
-      var list = this.list;
-      list.push({ title: this.list_title, date: this.date });
-      this.$store.commit("addlist", list);
-      uni.switchTab({
-        url: '../tag/tag' });
+      if (this.list_title.length === 0) {
+        uni.showToast({
+          title: '标题不可为空',
+          duration: 1500 });
+
+      } else {
+        var list = this.list;
+        list.push({ title: this.list_title, date: this.date });
+        this.$store.commit("addlist", list);
+        uni.switchTab({
+          url: '../tag/tag' });
+
+      }
+
+
 
     },
 
