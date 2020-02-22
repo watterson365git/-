@@ -220,12 +220,38 @@ var _default =
 
 
   onLoad: function onLoad() {
-    this.list = this.$store.state.list;
-    this.days();
-  },
-  onshow: function onshow() {
-    console.log("onshowvvvvvvvvvv");
-    this.days();
+    // console.log('走不走onload');
+    var times = this.$store.state.times;
+    var that = this;
+
+    if (times == 999) {
+      uni.getStorage({
+        key: 'list',
+        success: function success(res) {
+          var list = res.data;
+          console.log(res.data);
+
+          that.list = list;
+          console.log('提取本地数据成功');
+
+          that.$store.commit("changetimes");
+          that.$store.commit("changelist", list);
+
+
+        }, fail: function fail() {
+          //第一次用会获取失败但是times必须要加一
+          that.$store.commit("changetimes");
+
+        } });
+
+
+
+    } else {
+      this.list = this.$store.state.list;
+      this.days();
+
+    }
+
   },
   onShareAppMessage: function onShareAppMessage(res) {
     if (res.from === 'button') {// 来自页面内分享按钮
@@ -234,6 +260,19 @@ var _default =
     return {
       title: '纪念日-天气 小程序',
       path: '/pages/test/test?id=123' };
+
+  },
+  onShow: function onShow() {
+    // var list = this.$store.state.list
+    var list = this.$store.state.list;
+    uni.setStorage({
+      key: 'list',
+      data: list,
+      success: function success() {
+        console.log("存储成功");
+      } });
+
+
 
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

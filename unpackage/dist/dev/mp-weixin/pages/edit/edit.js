@@ -166,7 +166,6 @@ var _default =
       date: currentDate,
       time: '12:01',
 
-
       list_title: '',
       list: [] };
 
@@ -224,9 +223,9 @@ var _default =
       var day = date.getDate();
 
       if (type === 'start') {
-        year = year - 60;
+        year = year - 50;
       } else if (type === 'end') {
-        year = year + 2;
+        year = year + 50;
       }
       month = month > 9 ? month : '0' + month;;
       day = day > 9 ? day : '0' + day;

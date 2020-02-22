@@ -8508,7 +8508,7 @@ module.exports = {"_from":"@dcloudio/uni-stat@alpha","_id":"@dcloudio/uni-stat@2
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tag/tag": { "navigationBarTitleText": "纪念日" }, "pages/weather/weather": { "navigationBarTitleText": "天气" }, "pages/add/add": {}, "pages/dele/dele": {}, "pages/edit/edit": {} }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小纪念", "navigationBarBackgroundColor": "#f0a1a8", "backgroundColor": "#f0a1a8" } };exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = { "pages": { "pages/tag/tag": { "navigationBarTitleText": "纪念日" }, "pages/weather/weather": { "navigationBarTitleText": "天气", "enablePullDownRefresh": true }, "pages/add/add": {}, "pages/dele/dele": {}, "pages/edit/edit": {} }, "globalStyle": { "navigationBarTextStyle": "black", "navigationBarTitleText": "小纪念", "navigationBarBackgroundColor": "#f0a1a8", "backgroundColor": "#f0a1a8" } };exports.default = _default;
 
 /***/ }),
 /* 8 */
@@ -8662,8 +8662,10 @@ _vue.default.use(_vuex.default);var _default =
 
 new _vuex.default.Store({
   state: {
+    times: 999,
     index: 999,
-    list: [{ title: "纪念日1", date: "2020-2-20", days: 365, qian: '' }],
+    // list:[{title:"纪念日1",date:"2020-2-20",days:365,qian:''}],
+    list: [],
     list_title: '',
     list_date: '' },
 
@@ -8694,6 +8696,10 @@ new _vuex.default.Store({
       list[obj.index].days = obj.days;
       list[obj.index].qian = obj.qian;
 
+    },
+    changetimes: function changetimes(state) {
+      state.times = state.times + 1;
+      console.log(state.times);
     } },
 
 

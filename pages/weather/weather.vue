@@ -1,5 +1,6 @@
 <template>
 	<view class="content">
+		<text class="alert">如果获取失败，请打开手机定位后下拉刷新</text>
 		<view class="now">
 			<view class="tmp">当前温度{{now.tmp}}℃</view>
 			<view class="tmp2">今日温度:{{list[0].tmp_min}}℃/{{list[0].tmp_max}}℃</view>
@@ -30,19 +31,17 @@
 			}
 		},
 		methods: {
-			
-		},
-		onLoad(){
+			getdata(){
 				var that = this;
 				uni.getLocation({
 				    type: 'wgs84',
 				    success: function (res) {
-				        console.log('当前位置的经度：' + res.longitude);
-				        console.log('当前位置的纬度：' + res.latitude);
+				        // console.log('当前位置的经度：' + res.longitude);
+				        // console.log('当前位置的纬度：' + res.latitude);
 				        uni.request({
 				            url:'https://free-api.heweather.net/s6/weather/now?location=' + res.longitude + ',' + res.latitude + '&key=04fd6a9c1bef4bcaba1c66fcbca77075',			
 				            success: (result) => {
-				                console.log(result.data.HeWeather6[0].basic);
+				                // console.log(result.data.HeWeather6[0].basic);
 							
 								var now = result.data.HeWeather6[0].now
 								that.location = result.data.HeWeather6[0].basic
@@ -50,7 +49,7 @@
 				                uni.request({
 				                    url:'https://free-api.heweather.net/s6/weather/forecast?location=' + res.longitude + ',' + res.latitude + '&key=04fd6a9c1bef4bcaba1c66fcbca77075',			
 				                    success: (result) => {
-				                        console.log(result.data.HeWeather6[0].daily_forecast);
+				                        // console.log(result.data.HeWeather6[0].daily_forecast);
 										that.now = now
 										that.list =result.data.HeWeather6[0].daily_forecast
 										
@@ -62,6 +61,18 @@
 				            }
 				        })}})	
 			}
+			
+		},
+		onLoad(){
+			this.getdata()
+			},
+		onPullDownRefresh() {
+			this.getdata()
+			 setTimeout(function () {
+			            uni.stopPullDownRefresh();
+			        }, 2000);
+			
+			},
 	}
 </script>
 
@@ -77,7 +88,7 @@
 	position:relative;
 	left: 5%;
 	right: 5%;
-	margin-top:20%;
+	margin-top:10%;
 	width: 90%;
 
 	background-color:#e3b4b8;
@@ -97,6 +108,10 @@
 text{
 	margin-left: 14rpx;
 }
-
+.alert{
+	display: block;
+	color: red;
+	padding-bottom: 60rpx;
+}
 
 </style>

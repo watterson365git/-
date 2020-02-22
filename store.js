@@ -5,8 +5,10 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+	times:999,
 	index:999, 
-   list:[{title:"纪念日1",date:"2020-2-20",days:365,qian:''}],
+   // list:[{title:"纪念日1",date:"2020-2-20",days:365,qian:''}],
+    list:[],
    list_title:'',
    list_date:''
    
@@ -38,6 +40,10 @@ export default new Vuex.Store({
 		list[obj.index].qian = obj.qian
 	   
 	 },
+	 changetimes(state){
+	    state.times = state.times + 1
+		console.log(state.times)
+	  },
    
 
   },

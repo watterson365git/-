@@ -2,7 +2,7 @@
    <view class="adddate">
 	    <view class="name">
 		   <view class="leftname">名称</view>
-		   <input type="text" placeholder="输入名称" class="input" @blur="getname">
+		   <input type="text" placeholder="输入名称" class="input" @input="getname">
 		</view>
 		
 		<view class="name">

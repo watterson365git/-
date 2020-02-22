@@ -154,6 +154,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 var _default =
 {
   data: function data() {
@@ -164,38 +165,48 @@ var _default =
 
 
   },
-  methods: {},
+  methods: {
+    getdata: function getdata() {
+      var that = this;
+      uni.getLocation({
+        type: 'wgs84',
+        success: function success(res) {
+          // console.log('当前位置的经度：' + res.longitude);
+          // console.log('当前位置的纬度：' + res.latitude);
+          uni.request({
+            url: 'https://free-api.heweather.net/s6/weather/now?location=' + res.longitude + ',' + res.latitude + '&key=04fd6a9c1bef4bcaba1c66fcbca77075',
+            success: function success(result) {
+              // console.log(result.data.HeWeather6[0].basic);
+
+              var now = result.data.HeWeather6[0].now;
+              that.location = result.data.HeWeather6[0].basic;
+
+              uni.request({
+                url: 'https://free-api.heweather.net/s6/weather/forecast?location=' + res.longitude + ',' + res.latitude + '&key=04fd6a9c1bef4bcaba1c66fcbca77075',
+                success: function success(result) {
+                  // console.log(result.data.HeWeather6[0].daily_forecast);
+                  that.now = now;
+                  that.list = result.data.HeWeather6[0].daily_forecast;
+
+                } });
+
+
+
+
+            } });
+        } });
+    } },
 
 
   onLoad: function onLoad() {
-    var that = this;
-    uni.getLocation({
-      type: 'wgs84',
-      success: function success(res) {
-        console.log('当前位置的经度：' + res.longitude);
-        console.log('当前位置的纬度：' + res.latitude);
-        uni.request({
-          url: 'https://free-api.heweather.net/s6/weather/now?location=' + res.longitude + ',' + res.latitude + '&key=04fd6a9c1bef4bcaba1c66fcbca77075',
-          success: function success(result) {
-            console.log(result.data.HeWeather6[0].basic);
+    this.getdata();
+  },
+  onPullDownRefresh: function onPullDownRefresh() {
+    this.getdata();
+    setTimeout(function () {
+      uni.stopPullDownRefresh();
+    }, 2000);
 
-            var now = result.data.HeWeather6[0].now;
-            that.location = result.data.HeWeather6[0].basic;
-
-            uni.request({
-              url: 'https://free-api.heweather.net/s6/weather/forecast?location=' + res.longitude + ',' + res.latitude + '&key=04fd6a9c1bef4bcaba1c66fcbca77075',
-              success: function success(result) {
-                console.log(result.data.HeWeather6[0].daily_forecast);
-                that.now = now;
-                that.list = result.data.HeWeather6[0].daily_forecast;
-
-              } });
-
-
-
-
-          } });
-      } });
   } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 

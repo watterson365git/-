@@ -2,7 +2,7 @@
    <view class="adddate">
 	    <view class="name">
 		   <view class="leftname">名称</view>
-		   <input type="text" :value="list_title" class="input" @blur="getname">
+		   <input type="text" :value="list_title" class="input" @input="getname">
 		</view>
 		
 		<view class="name">
@@ -30,7 +30,6 @@
 	            index: 0,
 	            date: currentDate,
 	            time: '12:01',
-				
 				
 				list_title:'',
 				list:[]

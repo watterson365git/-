@@ -74,12 +74,38 @@
 			
 	    },
 		onLoad(){
-			this.list = this.$store.state.list
-			this.days()
-		},
-		onshow(){
-			console.log("onshowvvvvvvvvvv")
-			this.days()
+			// console.log('走不走onload');
+			var times = this.$store.state.times;
+			var that = this;
+			
+			if(times == 999){
+				uni.getStorage({
+				    key: 'list',
+				    success: function (res) {
+						var list = res.data
+				        console.log(res.data);
+						
+						that.list = list
+						console.log('提取本地数据成功')
+						
+						that.$store.commit("changetimes")
+						that.$store.commit("changelist",list)
+						
+						
+				    },fail() {
+						//第一次用会获取失败但是times必须要加一
+				    	that.$store.commit("changetimes")
+				
+				    }
+				});
+				
+				
+			}else{
+				this.list = this.$store.state.list
+				this.days()
+				
+			}
+			
 		},
 		onShareAppMessage(res) {
 		    if (res.from === 'button') {// 来自页面内分享按钮
@@ -89,7 +115,31 @@
 		      title: '纪念日-天气 小程序',
 		      path: '/pages/test/test?id=123'
 		    }
-		  }
+		  },
+		  onShow(){
+			  // var list = this.$store.state.list
+			  var list = this.$store.state.list
+			  uni.setStorage({
+			      key: 'list',
+			      data: list,
+			      success: function () {
+			          console.log("存储成功");
+			      }
+			  })
+			    
+			 
+		  },
+		//   onHide() {
+		//   	// var list = this.$store.state.list
+		// 	var list = this.$store.state.list
+		//   	uni.setStorage({
+		//   	    key: 'list',
+		//   	    data: list,
+		//   	    success: function () {
+		//   	        console.log("存储成功");
+		//   	    }
+		//   	});
+		//   }
 		
 		
 	}

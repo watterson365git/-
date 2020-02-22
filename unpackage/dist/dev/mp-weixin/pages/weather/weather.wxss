@@ -9,7 +9,7 @@ view{
 	position:relative;
 	left: 5%;
 	right: 5%;
-	margin-top:20%;
+	margin-top:10%;
 	width: 90%;
 
 	background-color:#e3b4b8;
@@ -26,6 +26,10 @@ view{
 text{
 	margin-left: 14rpx;
 }
-
+.alert{
+	display: block;
+	color: red;
+	padding-bottom: 60rpx;
+}
 
 

@@ -9,7 +9,8 @@
         ,{
             "path" : "pages/weather/weather",
             "style" : {
-				"navigationBarTitleText": "天气"
+				"navigationBarTitleText": "天气",
+				"enablePullDownRefresh":true
 			}
         }
         ,{
