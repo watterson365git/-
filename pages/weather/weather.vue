@@ -91,9 +91,7 @@
 	margin-top:10%;
 	width: 90%;
 
-	background-color:#e3b4b8;
-	border-radius:15rpx;
-	box-shadow: 3rpx 3rpx 2rpx 1rpx #888888;
+	
 }
 
 .now{

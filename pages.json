@@ -3,7 +3,7 @@
 		{
             "path" : "pages/tag/tag",
             "style" : {
-				"navigationBarTitleText": "纪念日"
+				"navigationBarTitleText": "日历"
 			}
         }
         ,{
@@ -15,15 +15,21 @@
         }
         ,{
             "path" : "pages/add/add",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "添加日历"
+			}
         }
         ,{
             "path" : "pages/dele/dele",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "查看日历"
+			}
         }
         ,{
             "path" : "pages/edit/edit",
-            "style" : {}
+            "style" : {
+				"navigationBarTitleText": "编辑日历"
+			}
         }
         
     ],

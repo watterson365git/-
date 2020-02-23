@@ -35,9 +35,8 @@
   },
   "permission": {
     "scope.userLocation": {
-      "desc": "小程序将获取你的位置"
-    }
-  },
+      "desc": "你的位置信息将用于小程序位置判断远近的显示。"
+    }},
   "usingComponents": {},
   "sitemapLocation": "sitemap.json"
 }

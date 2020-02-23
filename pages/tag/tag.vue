@@ -168,7 +168,8 @@
 		margin-top:3%;
 		width: 90%;
 		height: 160rpx;
-		background-color:#e3b4b8;
+		background:rgba(230,202,209,0.7);
+		
 		border-radius:15rpx;
 		box-shadow: 3rpx 3rpx 2rpx 1rpx #888888;
 	}
