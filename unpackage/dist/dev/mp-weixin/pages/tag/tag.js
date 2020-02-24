@@ -236,7 +236,7 @@ var _default =
 
           that.$store.commit("changetimes");
           that.$store.commit("changelist", list);
-
+          that.days();
 
         }, fail: function fail() {
           //第一次用会获取失败但是times必须要加一

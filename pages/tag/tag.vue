@@ -13,7 +13,7 @@
 			
 			
 		
-			<button  class="adddate" @click="toaddpage()">添加纪念日</button>
+			<button  class="adddate" @click="toaddpage()">添加日历</button>
 			
 			
 		
@@ -90,7 +90,7 @@
 						
 						that.$store.commit("changetimes")
 						that.$store.commit("changelist",list)
-						
+						that.days()
 						
 				    },fail() {
 						//第一次用会获取失败但是times必须要加一
