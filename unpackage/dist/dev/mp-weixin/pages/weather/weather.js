@@ -133,7 +133,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;} //
 //
 //
 //
@@ -155,8 +155,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var _default =
-{
+var _default = _defineProperty({
+
   data: function data() {
     return {
       location: '',
@@ -207,7 +207,25 @@ var _default =
       uni.stopPullDownRefresh();
     }, 2000);
 
-  } };exports.default = _default;
+  },
+  onShareAppMessage: function onShareAppMessage(res) {
+    if (res.from === 'button') {// 来自页面内分享按钮
+      console.log(res.target);
+    }
+    return {
+      title: '纪念日-天气 小程序',
+      path: '/pages/tag/tag' };
+
+  } }, "onShareAppMessage", function onShareAppMessage(
+res) {
+  if (res.from === 'button') {// 来自页面内分享按钮
+    console.log(res.target);
+  }
+  return {
+    title: '纪念日-天气 小程序',
+    path: '/pages/tag/tag' };
+
+});exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

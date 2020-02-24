@@ -113,7 +113,7 @@
 		    }
 		    return {
 		      title: '纪念日-天气 小程序',
-		      path: '/pages/test/test?id=123'
+		      path: '/pages/tag/tag'
 		    }
 		  },
 		  onShow(){
